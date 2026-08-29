@@ -25,7 +25,7 @@ class ClassifyTicket implements ShouldQueue
     public function handle(AIClassifierService $classifier): void
     {
         $result = $classifier->classify($this->ticket->subject, $this->ticket->description);
-
+        \Log::info('AI Classification Result', $result ?? ['result was null' => true]);
         $this->ticket->update([
             'priority'=> $result['priority'],
             'category' => $result['category']
