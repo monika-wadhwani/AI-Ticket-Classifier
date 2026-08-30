@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('subject');
             $table->text('description')->nullable();
             $table->string('status')->default('open');
             $table->string('priority')->nullable();
